@@ -696,6 +696,8 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
         _actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                   target:self
                                                                   action:@selector(actionButtonPressed:)];
+        // fork
+        _actionButton.tintColor = [UIColor whiteColor];
     }
 
     // Gesture
@@ -746,6 +748,16 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     _nextButton = nil;
 
     [super viewDidUnload];
+}
+
+// fork
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+// fork
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscape;
 }
 
 #pragma mark - Status Bar
